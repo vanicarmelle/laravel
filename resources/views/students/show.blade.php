@@ -31,7 +31,7 @@
                                     <td>{{  date("F j, Y", strtotime($stuinfo->birthDate)) }}</td>
                                     <td>{{ $stuinfo->gender }}</td>
                                    <td>
-                                    
+                                    <h1>testest</h1>
                 
 
                                    </td>
