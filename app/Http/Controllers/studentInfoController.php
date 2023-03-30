@@ -116,6 +116,8 @@ class studentInfoController extends Controller
     public function edit(string $id)
     {
         //
+        $studentInfo = StudentInfo::where('sNo', $id)->get();
+        return view ('students.edit', compact('studentInfo'));
     }
 
     /**
@@ -124,6 +126,33 @@ class studentInfoController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validatedData = $request->validate([
+            'xidNo' => ['required', 'max:8'],
+            'xfirstName' => ['required', 'max:20'],
+            'middleName' => ['max:15'],
+            'xlastName' => ['required', 'max:15'],
+            'xsuffix' => ['nullable', 'max:5'],
+            'xcourse' => ['required', 'max:15'],
+            'xyear' => ['required', 'max:8'],
+            'xbirthDate' => ['required', 'date'],
+            'xgender' => ['required'],
+        ]);
+        
+        $studentInfo =StudentInfo::where('sNo', $id)
+        ->update([
+            'idNo' => $request->xidNo,
+            'firstName' => $request->xfirstName,
+            'middleName' => $request->xmiddleName,
+            'lastName' => $request->xlastName,
+            'suffix' => $request->xsuffix,
+            'course' => $request->xcourse,
+            'year' => $request->xyear,
+            'birthDate' => $request->xbirthDate,
+            'gender' => $request->xgender,
+        ]);
+    
+        return redirect()->route('students');
+       
     }
 
     /**
@@ -132,5 +161,8 @@ class studentInfoController extends Controller
     public function destroy(string $id)
     {
         //
+        $studentInfo = StudentInfo::where('sNo', $id);
+        $studentInfo->delete();
+        return redirect()->route('students');
     }
 }

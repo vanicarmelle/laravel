@@ -17,54 +17,56 @@
                             @endforeach
                         </ul>
                     @endif
-                <form method="POST" action="{{ route ('students-store')}}">
+                    @foreach($studentInfo as $stuinfo)
+                <form method="POST" action="{{ route ('students-update', ['stuno'=>$stuinfo->sNo])}}">
                     @csrf
+                    @method('patch')
                     <div class="flex items-center">
                         <label for="ID Number">ID Number</label>
                         <div>
-                            <input type="text" name="xidNo" value="{{old('xidNo')}}"/>
+                            <input type="text" name="xidNo" value="{{$stuinfo->idNo}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="First Name">First Name</label>
                         <div>
-                            <input type="text" name="xfirstName" value="{{old('xfirstName')}}"/>
+                            <input type="text" name="xfirstName" value="{{$stuinfo->firstName}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Middle Name">Middle Name</label>
                         <div>
-                            <input type="text" name="xmiddleName" value="{{old('xmiddleName')}}"/>
+                            <input type="text" name="xmiddleName" value="{{$stuinfo->middleName}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Last Name">Last Name</label>
                         <div>
-                            <input type="text" name="xlastName" value="{{old('xlastName')}}"/>
+                            <input type="text" name="xlastName" value="{{$stuinfo->lastName}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Suffix">Suffix</label>
                         <div>
-                            <input type="text" name="xsuffix" value="{{old('xsuffix')}}"/>
+                            <input type="text" name="xsuffix" value="{{$stuinfo->suffix}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Course">Course</label>
                         <div>
-                            <input type="text" name="xcourse" value="{{old('xcourse')}}"/>
+                            <input type="text" name="xcourse" value="{{$stuinfo->course}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Year Level">Year Level</label>
                         <div>
-                            <input type="number" min="1" max="4" name="xyear" value="{{old('xyear')}}"/>
+                            <input type="number" min="1" max="4" name="xyear" value="{{$stuinfo->year}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <label for="Birth Date">Birth Date</label>
                         <div>
-                            <input type="date" name="xbirthDate" value="{{old('xbirthDate')}}"/>
+                            <input type="date" name="xbirthDate" value="{{$stuinfo->birthDate}}"/>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -79,6 +81,7 @@
                     <button type="submit">Submit Info</button>
 
 </form>  
+@endforeach
                 </div>
             </div>
         </div>
