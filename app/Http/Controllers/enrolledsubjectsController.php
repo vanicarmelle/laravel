@@ -11,14 +11,21 @@ class enrolledsubjectsController extends Controller
      */
     public function index()
     {
+      
+        $enrolledsubjectsinfo = new enrolledsubjectsinfo();
+     
+
+      
         $enrolledsubjectsinfo = new enrolledsubjectsinfo();
 
-        $enrolledsubjectsinfo ->subjectCode = "";
+        $enrolledsubjectsinfo ->subjectCode = " ";
         $enrolledsubjectsinfo ->description = "";
         $enrolledsubjectsinfo ->units = "";
         $enrolledsubjectsinfo ->schedule = "";
 
         $enrolledsubjectsinfo->save();
+
+       
     }
 
     /**

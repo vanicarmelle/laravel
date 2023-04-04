@@ -32,12 +32,12 @@
                                     <td>{{ $stuinfo->gender }}</td>
                                    <td>
                                     
-                                   <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('students-show',['stuno' => $stuinfo->sNo]) }}">View</a>
-                                   <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('students-edit',['stuno' => $stuinfo->sNo]) }}">Edit</a>
-                                   <form method="POST" action="{{route('students-delete', ['stuno' =>$stuinfo->sNo]) }}"onlick="return confirm('Are you sure want to delete this record?')">
+                                   <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('students-show',['stuno' => $stuinfo->sno]) }}">View</a>
+                                   <a class="mt-4 bg-blue-200 hover:bg-blue-500 text-black font-bold py-2 px-4 rounded" href="{{route('students-edit',['stuno' => $stuinfo->sno]) }}">Edit</a>
+                                   <form method="POST" action="{{route('students-delete', ['stuno' =>$stuinfo->sno]) }}"onlick="return confirm('Are you sure want to delete this record?')">
                                     @csrf 
                                     @method('delete')
-                                    <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type="submit">Delete</button>
+                                    <button class="mt-4 bg-red-200 hover:bg-red-500 text-black font-bold py-2 px-4 rounded" type="submit">Delete</button>
                                     </form>
                                    
                                 

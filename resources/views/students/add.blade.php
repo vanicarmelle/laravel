@@ -11,13 +11,14 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                 @if($errors)
                         <h6>Errors Encountered</h6>
+                        
                         <ul>
                             @foreach($errors->all() as $error)
                             <li>{{$error}}</li>
                             @endforeach
                         </ul>
                     @endif
-                <form method="POST" action="{{ route ('students-store')}}">
+                <form method="POST" action="{{ route('student-store')}}">
                     @csrf
                     <div class="flex items-center">
                         <label for="ID Number">ID Number</label>

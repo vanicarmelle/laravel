@@ -11,6 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                 <a href="{{ route ('add-student')}}">Add Student Information</a>
                 <h6>List of Students</h6>
+                
             <table class="border-separate border-spacing-5">
                     <thead>
                         <tr>
@@ -20,10 +21,12 @@
                         <th>Birth Date</th>
                         <th>Gender</th>
                         <th>Option</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                 @foreach ($studentInfo as $stuinfo)
+              
                                 <tr>
                                     <td>{{ $stuinfo->idNo}}</td>
                                     <td>{{ $stuinfo->firstName }} {{$stuinfo->middleName}} {{$stuinfo->lastName}}</td>

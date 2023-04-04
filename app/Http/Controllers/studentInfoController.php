@@ -106,7 +106,7 @@ class studentInfoController extends Controller
     {
         //
         //echo "Test";
-        $studentInfo = studentInfo::where('sNo', $id)->get();
+        $studentInfo = studentInfo::where('sno', $id)->get();
         return view('students.show', compact('studentInfo'));
     }
 
@@ -166,3 +166,4 @@ class studentInfoController extends Controller
         return redirect()->route('students');
     }
 }
+

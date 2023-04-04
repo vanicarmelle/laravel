@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentInfoController;
+use App\Http\Controllers\enrolledsubjects;
 
 
 /*
@@ -42,9 +43,10 @@ Route::get('/students', [studentInfoController::class, 'index'])
 ->middleware(['auth', 'verified'])
 ->name('students');
 // 05
-Route::get('/students/{stuno}', [studentInfoController::class, 'show'])
+Route::get('/students/show/{stuno}', [studentInfoController::class, 'show'] )
 ->middleware(['auth', 'verified'])
 ->name('students-show');
+
 // 06 route to delete record
 Route::delete('/students/delete/{stuno}', [studentInfoController::class, 'destroy'])
 ->middleware(['auth', 'verified'])
@@ -59,7 +61,12 @@ Route::patch('/students/update/{stuno}', [studentInfoController::class, 'update'
 ->name('students-update');
 
 
+
+
+
+
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
